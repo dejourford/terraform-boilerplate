@@ -96,6 +96,15 @@ resource "aws_security_group" "ec2" {
 }
 
 # =============================================================================
+# KEY-PAIR
+# =============================================================================
+
+resource "aws_key_pair" "main" {
+  key_name   = "${var.project_name}-key"
+  public_key = file("~/.ssh/my-project.pub")
+}
+
+# =============================================================================
 # COMPUTE
 # =============================================================================
 
@@ -116,7 +125,3 @@ resource "aws_instance" "main" {
   tags = { Name = "${var.project_name}-ec2" }
 }
 
-resource "aws_key_pair" "main" {
-  key_name   = "${var.project_name}-key"
-  public_key = file("~/.ssh/my-project.pub")
-}
