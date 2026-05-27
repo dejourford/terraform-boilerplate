@@ -1,0 +1,18 @@
+# Terraform state files (can contain secrets in plain text)
+*.tfstate
+*.tfstate.backup
+
+# tfvars (contains your IPs, secrets, sensitive config)
+*.tfvars
+
+# Terraform working directory (downloaded providers, modules)
+.terraform/
+.terraform.lock.hcl
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
